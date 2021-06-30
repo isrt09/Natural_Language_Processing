@@ -7,7 +7,7 @@
  - <b>Tokenization</b>
  - <b>Stemming</b>
  - <b>Lemmatization</b>
- - Stopwords
+ - <b>Stopwords</b>
  - Phrase Machting and Vocabulary
  - <b>Parts of Speech (POS)</b>
  - <b>Named Entity Recognition (NER)</b>
