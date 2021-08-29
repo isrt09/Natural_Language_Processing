@@ -17,3 +17,4 @@ re.sub(r"\d+","",           text)
 re.sub(r"Pakistan","India", text)
 re.sub(r"[a-z]",   "#",     text)
 re.sub(r"[a-zA-Z]","#",     text)
+
