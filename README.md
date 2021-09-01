@@ -3,15 +3,19 @@
  - Working with Text Files
  - Working with PDFs
  - Review on Regular Expressions
+ - <b>Regular Expression</b>
  - <b>Spacy</b>
  - <b>Tokenization</b>
  - <b>Stemming</b>
  - <b>Lemmatization</b>
  - <b>Stopwords</b>
+ - <b>Bag of Words (BoW's)</b>
  - Phrase Machting and Vocabulary
  - <b>Parts of Speech (POS)</b>
  - <b>Named Entity Recognition (NER)</b>
  - **<b>Text Classification</b>**
+ - **Reviews Analysis**
  - **Confusion Matrix**
  - **Classfication Metrics**
  - **Text Feature Exraction**
+
