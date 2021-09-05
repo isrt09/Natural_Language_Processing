@@ -1,6 +1,6 @@
-# Word2Vec model visualization
+# Word2Vec Model 
 
-# Install gensim - pip install gensim
+# !pip install gensim
 import nltk
 import urllib
 import bs4 as bs
