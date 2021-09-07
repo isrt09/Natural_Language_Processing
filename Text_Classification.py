@@ -26,3 +26,16 @@ X_in = open('X.pickle','rb')
 y_in = open('y.pickle','rb')
 X = pickle.load(X_in)
 y = pickle.load(y_in)
+
+
+# Creating the corpus
+corpus = []
+for i in range(0, 2000):
+    review = re.sub(r'\W', ' ', str(X[i]))
+    review = review.lower()
+    review = re.sub(r'^br$', ' ', review)
+    review = re.sub(r'\s+br\s+',' ',review)
+    review = re.sub(r'\s+[a-z]\s+', ' ',review)
+    review = re.sub(r'^b\s+', '', review)
+    review = re.sub(r'\s+', ' ', review)
+    corpus.append(review)    
