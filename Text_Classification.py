@@ -55,3 +55,12 @@ X = transformer.fit_transform(X).toarray()
 from sklearn.feature_extraction.text import TfidfVectorizer
 vectorizer = TfidfVectorizer(max_features = 2000, min_df = 3, max_df = 0.6, stop_words = stopwords.words('english'))
 X = vectorizer.fit_transform(corpus).toarray()
+
+# Splitting the dataset into the Training set and Test set
+from sklearn.model_selection import train_test_split
+text_train, text_test, sent_train, sent_test = train_test_split(X, y, test_size = 0.20, random_state = 0)
+
+# Training the classifier
+from sklearn.linear_model import LogisticRegression
+classifier = LogisticRegression()
+classifier.fit(text_train,sent_train)
