@@ -64,3 +64,17 @@ text_train, text_test, sent_train, sent_test = train_test_split(X, y, test_size 
 from sklearn.linear_model import LogisticRegression
 classifier = LogisticRegression()
 classifier.fit(text_train,sent_train)
+
+# Testing model performance
+sent_pred = classifier.predict(text_test)
+
+from sklearn.metrics import confusion_matrix
+cm = confusion_matrix(sent_test, sent_pred)
+
+# Saving our classifier
+with open('classifier.pickle','wb') as f:
+    pickle.dump(classifier,f)
+    
+# Saving the Tf-Idf model
+with open('tfidfmodel.pickle','wb') as f:
+    pickle.dump(vectorizer,f)
