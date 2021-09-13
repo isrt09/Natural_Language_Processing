@@ -67,3 +67,16 @@ for word in freq_words:
         if word in nltk.word_tokenize(data):
             doc_count += 1
     word_idfs[word] = np.log(len(dataset)/(1+doc_count))
+
+# TF Matrix
+tf_matrix = {}
+for word in freq_words:
+    doc_tf = []
+    for data in dataset:
+        frequency = 0
+        for w in nltk.word_tokenize(data):
+            if word == w:
+                frequency += 1
+        tf_word = frequency/len(nltk.word_tokenize(data))
+        doc_tf.append(tf_word)
+    tf_matrix[word] = doc_tf
