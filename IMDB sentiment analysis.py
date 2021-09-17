@@ -29,3 +29,29 @@ y = pickle.load(y_in)
 # Improving the stop words list
 stop_words = stopwords.words('english')
 uncheck_words = ['don','won','doesn','couldn','isn','wasn','wouldn','can','ain','shouldn','not']
+
+# Creating the corpus which is the input to TFIDFVectorizer
+corpus = []
+for i in range(0, len(X)):
+    antonyms = []
+    review = re.sub(r'\W', ' ', str(X[i]))
+    review = re.sub(r'\d', ' ', review)
+    review = review.lower()
+    review = re.sub(r'br[\s$]', ' ', review)
+    review = re.sub(r'\s+[a-z][\s$]', ' ',review)
+    review = re.sub(r'b\s+', '', review)
+    review = re.sub(r'\s+', ' ', review)
+    word_list = review.split(' ')
+    newword_list = []
+    temp_word = ''
+    for word in word_list:
+        if temp_word in uncheck_words:
+            if word not in stop_words:
+                word = 'not_' + word
+                temp_word = ''
+        if word in uncheck_words:
+            temp_word = word
+        if word not in uncheck_words:
+            newword_list.append(word)
+    review = ' '.join(newword_list)
+    corpus.append(review)    
