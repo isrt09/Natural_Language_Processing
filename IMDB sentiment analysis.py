@@ -54,4 +54,20 @@ for i in range(0, len(X)):
         if word not in uncheck_words:
             newword_list.append(word)
     review = ' '.join(newword_list)
-    corpus.append(review)    
+    corpus.append(review) 
+
+# Creating the weighted BOW model using TF-IDF methodology
+from sklearn.feature_extraction.text import TfidfVectorizer
+tiv = TfidfVectorizer(max_features = 8000, min_df = 2, norm="l2", use_idf=True, sublinear_tf = True, max_df = 0.6, stop_words = stop_words)
+X = tiv.fit_transform(corpus).toarray()
+
+
+# Splitting the dataset into the Training set and Test set
+from sklearn.model_selection import train_test_split
+text_train, text_test, sent_train, sent_test = train_test_split(X, y, test_size = 0.2, random_state = 0)
+
+
+# Fitting the Training set to Linear SVC
+from sklearn.svm import LinearSVC
+classifier = LinearSVC(C = 0.1)
+classifier.fit(text_train,sent_train)   
