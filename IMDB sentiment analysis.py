@@ -71,3 +71,13 @@ text_train, text_test, sent_train, sent_test = train_test_split(X, y, test_size 
 from sklearn.svm import LinearSVC
 classifier = LinearSVC(C = 0.1)
 classifier.fit(text_train,sent_train)   
+
+from sklearn.naive_bayes import MultinomialNB
+classifier = MultinomialNB()
+classifier.fit(text_train,sent_train)
+
+# Fitting Random Forest Classification to the Training set
+from sklearn.ensemble import RandomForestClassifier
+classifier = RandomForestClassifier(n_estimators = 100, criterion = 'entropy', random_state = 0)
+classifier.fit(text_train, sent_train)
+
