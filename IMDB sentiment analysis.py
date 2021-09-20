@@ -81,3 +81,10 @@ from sklearn.ensemble import RandomForestClassifier
 classifier = RandomForestClassifier(n_estimators = 100, criterion = 'entropy', random_state = 0)
 classifier.fit(text_train, sent_train)
 
+# Pickling classifier
+with open('svcclassifier.pickle','wb') as f:
+    pickle.dump(classifier,f)
+    
+# Pikling TF-IDF model
+with open('TFIDF.pickle','wb') as f:
+    pickle.dump(tiv,f)    
