@@ -88,3 +88,19 @@ with open('svcclassifier.pickle','wb') as f:
 # Pikling TF-IDF model
 with open('TFIDF.pickle','wb') as f:
     pickle.dump(tiv,f)    
+
+# Predicting the Test set results
+sent_pred = classifier.predict(text_test)
+
+
+# Making the Confusion Matrix
+from sklearn.metrics import confusion_matrix
+cm = confusion_matrix(sent_test, sent_pred)
+
+print(cm[0][0]+cm[1][1])
+
+# Applying k-Fold Cross Validation
+from sklearn.model_selection import cross_val_score
+accuracies = cross_val_score(estimator = classifier, X = text_train, y = sent_train, cv = 10)
+accuracies.mean()
+accuracies.std()
